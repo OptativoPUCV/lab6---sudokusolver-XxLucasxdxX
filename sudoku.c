@@ -64,6 +64,9 @@ int is_valid(Node* n){
 
   // Validar columnas
   for(i = 0; i < 9; i++) {
+    for(j = 0; j < 10; j++) {
+      valido[j] = 0;  
+    }
     for(j = 0; j < 9; j++) {
       if(n->sudo[j][i] != 0) {
         if(valido[n->sudo[j][i]] == 1) {
