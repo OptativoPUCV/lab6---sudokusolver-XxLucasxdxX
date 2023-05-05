@@ -46,15 +46,14 @@ void print_node(Node* n){
 int is_valid(Node* n){
   int valido[10], i, j, p, k;
 
-  // Validar filas
   for(i = 0; i < 9; i++) {
     for(j = 0; j < 10; j++) {
-      valido[j] = 0;  // Reiniciar el arreglo de números marcados
+      valido[j] = 0;  
     }
     for(j = 0; j < 9; j++) {
       if(n->sudo[i][j] != 0) {
         if(valido[n->sudo[i][j]] == 1) {
-          return 0;  // Número repetido en la fila
+          return 0;  
         }
         else {
           valido[n->sudo[i][j]] = 1;
@@ -65,13 +64,10 @@ int is_valid(Node* n){
 
   // Validar columnas
   for(i = 0; i < 9; i++) {
-    for(j = 0; j < 10; j++) {
-      valido[j] = 0;  // Reiniciar el arreglo de números marcados
-    }
     for(j = 0; j < 9; j++) {
       if(n->sudo[j][i] != 0) {
         if(valido[n->sudo[j][i]] == 1) {
-          return 0;  // Número repetido en la columna
+          return 0;  
         }
         else {
           valido[n->sudo[j][i]] = 1;
