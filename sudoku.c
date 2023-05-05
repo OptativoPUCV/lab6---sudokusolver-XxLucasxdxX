@@ -62,7 +62,6 @@ int is_valid(Node* n){
     }
   }
 
-  // Validar columnas
   for(i = 0; i < 9; i++) {
     for(j = 0; j < 10; j++) {
       valido[j] = 0;  
@@ -79,17 +78,17 @@ int is_valid(Node* n){
     }
   }
 
-  // Validar submatrices
+
   for(k = 0; k < 9; k++) {
     for(j = 0; j < 10; j++) {
-      valido[j] = 0;  // Reiniciar el arreglo de números marcados
+      valido[j] = 0;  
     }
     for(p = 0; p < 9; p++) {
       i = 3 * (k / 3) + (p / 3);
       j = 3 * (k % 3) + (p % 3);
       if(n->sudo[i][j] != 0) {
         if(valido[n->sudo[i][j]] == 1) {
-          return 0;  // Número repetido en la submatriz
+          return 0;  
         }
         else {
           valido[n->sudo[i][j]] = 1;
@@ -97,8 +96,6 @@ int is_valid(Node* n){
       }
     }
   }
-
-  // Si llegamos hasta aquí es porque el estado es válido
   return 1;
 }
 
