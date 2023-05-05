@@ -112,12 +112,16 @@ List* get_adj_nodes(Node* n){
         for(int numero = 1 ;numero<=9;numero++){
           Node *nodo = copy(n);
           nodo->sudo[i][j] = numero;
-          
-          pushBack(list, nodo);
-          
+          if (is_valid(nodo)){
+            pushBack(list, nodo);
+          } else {
+            free(nodo);
+          }
+          return list;
         }
       }
     }
+    
   }
   return list;
 }
